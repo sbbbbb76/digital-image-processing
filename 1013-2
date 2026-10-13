@@ -1,0 +1,17 @@
+import skimage.io as io
+import matplotlib.pyplot as plt
+import skimage.exposure as ex
+
+c = io.imread(r"C:\Users\CJCU\Desktop\sunset.png")
+plt.figure()
+plt.imshow(c, cmap='gray')
+
+ch = ex.equalize_hist(c)
+
+plt.figure()
+plt.imshow(ch, cmap='gray')
+
+plt.figure()
+plt.hist(ch.flatten(), bins=256)
+
+plt.show()
